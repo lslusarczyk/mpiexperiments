@@ -17,6 +17,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native")
 set(CMAKE_CXX_STANDARD 17)
 find_package(MPI REQUIRED)
 
+add_executable(mpiexperiments-sycl main.cpp)
+target_compile_definitions(mpiexperiments-sycl PRIVATE USE_SYCL)
+target_link_libraries(mpiexperiments-sycl PRIVATE MPI::MPI_CXX)
+
 add_executable(mpiexperiments main.cpp)
 target_link_libraries(mpiexperiments PRIVATE MPI::MPI_CXX)
 

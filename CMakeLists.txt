@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 project(mpiexperiments)
 
 if(NOT CMAKE_CXX_COMPILER_ID STREQUAL "IntelLLVM")
-    message(FATAL_ERROR "use intel compiler")
+  message(FATAL_ERROR "use intel compiler")
 endif()
 
 add_compile_options(-fsycl)
@@ -19,4 +19,3 @@ find_package(MPI REQUIRED)
 
 add_executable(mpiexperiments main.cpp)
 target_link_libraries(mpiexperiments PRIVATE MPI::MPI_CXX)
-
